@@ -18,3 +18,11 @@ jobs:
         run: cd External/objective-git && script/bootstrap && script/update_libgit2 && cd ../..
       - name: Build project
         run: xcodebuild -workspace GitX.xcworkspace -scheme GitX archive | xcpretty
+      - name: Xcodebuild Action
+        uses: sersoft-gmbh/xcodebuild-action@v1.1
+        with:
+          project: GitX.xcodeproj
+          scheme: GitX
+          configuration: Debug
+          action: test
+
